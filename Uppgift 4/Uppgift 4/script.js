@@ -12,8 +12,8 @@ function doCalculations(){
    var length;
    var width;
    var area;
-   var area_inc;
-   var area_tri;
+   var area_inc; // area for 50% longer at 3m widther rektangle
+   var area_tri; // area for triangle
    var distanse;
    var unit = ["steg", "fot","tum"];
    var conv = [90, 30.48, 2.54];

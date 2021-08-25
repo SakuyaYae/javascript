@@ -35,6 +35,15 @@ function showFruit(){
     nr = inputElem[1];
     nr = Number(inputElem[1].value)
     fruitUrl = document.getElementById("fruitImg");
+
+    nr = parseInt(nr);
+    // if statment that
+    if(nr < 1 || nr > 5){
+        msgElem.innerHTML = "talet är inte mellan 1-5"
+        return; 
+    }
+
+
     // if else if else code that checks specificly for the numbers that are used to display fruits
     if(nr == 1){
         fruitUrl.src = "./pics/fruit1.jpg";
@@ -71,7 +80,7 @@ function checkName(){
         msgElem.innerHTML = "Ingen frukt är vald" 
         return;
     }
-    
+
     name = inputElem[2];
     name = String(inputElem[2].value);
     

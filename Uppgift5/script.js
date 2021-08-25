@@ -1,9 +1,10 @@
 // JavaScript
 
 // Globala variabler
-var msgElem;
-var inputElem;
-
+var msgElem; // ...
+var inputElem; // stores inputs in a List
+var fruitName; // a list that stores fruitnames
+var fruitNr // stores the number of chosen fruit
 
 // Funktion som körs då hela webbsidan är inladdad, dvs då all HTML-kod är utförd.
 // Initiering av globala variabler samt koppling avfunktioner till knapparna.
@@ -18,9 +19,12 @@ function init() {
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 
 
+
+// The function checks the imput of the first text feld and alters the img on the webbpage if the input was a nummber that 
+// coresponds to a img of a fruit. if the input is a wrong number or if its NaN it alerts the user that somting is worng
 function showFruit(){
-    var nr;
-    var fruitUrl;
+    var nr; // takes the input from a varable an converts it int a number
+    var fruitUrl; // stores a reffrens that is used to alter the img on the webbpage
 
     nr = inputElem[1];
     nr = Number(inputElem[1].value)
@@ -49,6 +53,4 @@ function showFruit(){
     else{
         alert("Oops somting went worng!")
     }
-    
-
 }

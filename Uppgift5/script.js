@@ -3,7 +3,7 @@
 // Globala variabler
 var msgElem; // ...
 var inputElem; // stores inputs in a List
-var fruitName; // a list that stores fruitnames
+var fruitNames; // a list that stores fruitnames
 var fruitNr // stores the number of chosen fruit
 
 // Funktion som körs då hela webbsidan är inladdad, dvs då all HTML-kod är utförd.
@@ -14,7 +14,13 @@ function init() {
 	inputElem[2] = document.getElementById("input2")
     inputElem[3] = document.getElementById("input3")
 
+    msgElem = document.getElementById("message");
+
+    fruitNames = ["Ingen frukt", "Äppel", "bannan", "citron", "apelsin", "päron"];
+    fruitNr = 0;
+
     document.getElementById("btn1").onclick = showFruit;
+    document.getElementById("btn2").onclick = checkName;
 } // End init
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 
@@ -53,4 +59,28 @@ function showFruit(){
     else{
         alert("Oops somting went worng!")
     }
+    fruitNr = nr;
+}
+
+function checkName(){
+    var name; // stores input name
+
+
+   
+    if(fruitNr == 0){
+        msgElem.innerHTML = "Ingen frukt är vald" 
+        return;
+    }
+    
+    name = inputElem[2];
+    name = String(inputElem[2].value);
+    
+    if(name == fruitNames[fruitNr]){
+        msgElem.innerHTML = "Rätt frukt"
+    }
+    else{
+        msgElem.innerHTML = "fel frukt" 
+    }
+
+
 }

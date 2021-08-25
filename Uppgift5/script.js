@@ -25,10 +25,9 @@ function init() {
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 
 
-
+function showFruit() {
 // The function checks the imput of the first text feld and alters the img on the webbpage if the input was a nummber that 
-// coresponds to a img of a fruit. if the input is a wrong number or if its NaN it alerts the user that somting is worng
-function showFruit(){
+// coresponds to a img of a fruit. if the input is a wrong number or if its NaN it tells the user
     var nr; // takes the input from a varable an converts it int a number
     var fruitUrl; // stores a reffrens that is used to alter the img on the webbpage
 
@@ -37,12 +36,16 @@ function showFruit(){
     fruitUrl = document.getElementById("fruitImg");
 
     nr = parseInt(nr);
-    // if statment that
+    // if statment that chechs if nr is in range 1-5
     if(nr < 1 || nr > 5){
         msgElem.innerHTML = "talet är inte mellan 1-5"
+        return;
+    }
+    // if statment that chechs if nr is a number
+    if(isNaN(nr)){
+        msgElem.innerHTML = "inmatningen är inte ett tal"
         return; 
     }
-
 
     // if else if else code that checks specificly for the numbers that are used to display fruits
     if(nr == 1){
@@ -73,8 +76,6 @@ function showFruit(){
 
 function checkName(){
     var name; // stores input name
-
-
    
     if(fruitNr == 0){
         msgElem.innerHTML = "Ingen frukt är vald" 

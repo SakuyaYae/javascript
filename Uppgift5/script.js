@@ -120,6 +120,15 @@ function addFruits(){
         msgElem.innerHTML = "Ingen frukt är vald" 
         return;
     }
+    amount = getNr(3, 9);
+
+
+    if(amount === null){
+        console.info("null value detected")
+        return;
+    }
+
+
 
 }
 

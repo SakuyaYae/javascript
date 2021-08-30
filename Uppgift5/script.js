@@ -115,6 +115,8 @@ function addFruits(){
     var imgList;
     var amount;
 
+    imgList = "";
+
     if(fruitNr == 0){
         console.info("No fruit chosen");
         msgElem.innerHTML = "Ingen frukt är vald" 
@@ -129,6 +131,9 @@ function addFruits(){
     }
 
 
-
+    for(i = 0; i < amount; i++){
+        imgList += "<img src='./pics/fruit" + fruitNr + ".jpg' alt='frukt'>";
+    }
+    selFruitElem.innerHTML = imgList;
 }
 

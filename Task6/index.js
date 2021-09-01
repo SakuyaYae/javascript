@@ -1,4 +1,4 @@
-// author SakuyaYae https://github.com/SakuyaYae
+// author: SakuyaYae https://github.com/SakuyaYae
 
 var min; // min value for sakura_sum_min_max()
 var max; // max value for sakura_sum_min_max()

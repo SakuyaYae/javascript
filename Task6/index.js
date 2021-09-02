@@ -65,7 +65,7 @@ function sakura_calc_squere_min_max(min, max){
 
 function sakura_check_string(text){
     var check;
-
+    
 
     if(check == "1"){
         console.info("true")

@@ -21,3 +21,9 @@ a{
   font-family: Verdana;
 }
 
+button{
+  background-color: darkorchid;
+  font-family: Verdana;
+  color: whitesmoke;
+  font-size: 80%;
+}

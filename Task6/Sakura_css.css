@@ -4,7 +4,7 @@
   color: whitesmoke;
   width: 100%;
   background-color: purple;
-  
+
 }
 
 .sakura_alt{
@@ -13,6 +13,12 @@
   width: 100%;
   color: whitesmoke;
   font-family: Verdana;
+}
+.sakura_background_alter{
+  width: 100%;
+  color: whitesmoke;
+  font-family: Verdana;
+  background-image: url("908854.jpg");
 }
 
 a{

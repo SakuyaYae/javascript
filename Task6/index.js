@@ -12,14 +12,15 @@ function init() {
     inputElem[0] = document.getElementById("max")
 	inputElem[1] = document.getElementById("min")
     inputElem[2] = document.getElementById("number")
-    inputElem[3] = document.getElementById("??")
+    inputElem[3] = document.getElementById("text")
 
     document.getElementById("btn_min").onclick = sakura_min;
     document.getElementById("btn_max").onclick = sakura_max;
     document.getElementById("btn_numbers").onclick = sakura_numbers;
-    document.getElementById("btn_sakura").onclick = sakura_main_calc;
+    document.getElementById("btn_text").onclick = sakura_text_string;
+    document.getElementById("btn_sakura").onclick = sakura_main_func;
 
-    
+
 } // End init
 window.onload = init;
 
@@ -37,7 +38,10 @@ function sakura_numbers(){
     numbers = Number(inputElem[2].value);
     return numbers;
 }
-
+function sakura_text_string(){
+  text = String(inputElem[3])
+  return text;
+}
 
 
 function sakura_sum_min_max(min, max){
@@ -65,6 +69,18 @@ function sakura_calc_squere_min_max(min, max){
 
 function sakura_check_string(text){
     var check;
+    var text_size;
+    var text_divide;
+
+    text_divide = text_size % 2;
+
+    if(text_divide == 0){
+
+    }
+
+    if(text_divide == 1){
+
+    }
 
     if(check == "1"){
         console.info("true")
@@ -75,16 +91,17 @@ function sakura_check_string(text){
         return false;
     }
     else{
+        alert("Error")
         console.info("Error")
         return;
     }
 }
 
-function sakura_main_calc(){
+function sakura_main_func(){
     max = sakura_max()
     min = sakura_min()
     numbers = sakura_numbers()
-   
+
     var sakura_squere = sakura_calc_squere(numbers);
     var sakura_squere_min_max = sakura_calc_squere_min_max(min, max);
     var sakura_sum = sakura_sum_min_max(min, max);
@@ -93,4 +110,3 @@ function sakura_main_calc(){
     console.info("squere of sum is: ",  sakura_squere_min_max);
     console.info("sum is: ",  sakura_sum);
 }
-

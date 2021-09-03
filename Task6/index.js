@@ -40,6 +40,7 @@ function sakura_numbers(){
 }
 function sakura_text_string(){
   text = String(inputElem[3])
+  console.info(text)
   return text;
 }
 

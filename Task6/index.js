@@ -39,7 +39,7 @@ function sakura_numbers(){
     return numbers;
 }
 function sakura_text_string(){
-  text = String(inputElem[3])
+  text = String(inputElem[3]) // dosent give the imput as a string
   console.info(text)
   return text;
 }

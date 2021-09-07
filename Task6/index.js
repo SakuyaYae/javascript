@@ -39,8 +39,7 @@ function sakura_numbers(){
     return numbers;
 }
 function sakura_text_string(){
-  text = String(inputElem[3]) // dosent give the imput as a string
-  console.info(text)
+  text = String(inputElem[3].value)
   return text;
 }
 
@@ -69,20 +68,25 @@ function sakura_calc_squere_min_max(min, max){
 }
 
 function sakura_check_string(text){
-    var check;
+    var check = 0;
     var text_size;
-    var text_divide;
+    var string_size;
 
-    text_divide = text_size % 2;
-
-    if(text_divide == 0){
-
-    }
-
-    if(text_divide == 1){
-
-    }
-
+    text_size = text.length;
+    string_size = text_size;
+        for(i = 0; i < (string_size / 2); i++){
+            if(text[i] == text[text_size - 1]){ 
+                check += 1;
+                text_size -= 1;
+            }
+        }
+        if(check == (string_size / 2)){
+            check = 1;
+        }
+        else{
+            check = 0;
+        }
+ 
     if(check == "1"){
         console.info("true")
         return true;
@@ -91,23 +95,16 @@ function sakura_check_string(text){
         console.info("false")
         return false;
     }
-    else{
-        alert("Error")
-        console.info("Error")
-        return;
-    }
 }
 
 function sakura_main_func(){
-    max = sakura_max()
-    min = sakura_min()
-    numbers = sakura_numbers()
-
     var sakura_squere = sakura_calc_squere(numbers);
     var sakura_squere_min_max = sakura_calc_squere_min_max(min, max);
     var sakura_sum = sakura_sum_min_max(min, max);
+    var sakura_text = sakura_check_string(text)
 
     console.info("squere is: ",  sakura_squere);
     console.info("squere of sum is: ",  sakura_squere_min_max);
     console.info("sum is: ",  sakura_sum);
+    console.info("is polyndrom ", sakura_text)
 }

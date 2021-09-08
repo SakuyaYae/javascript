@@ -23,26 +23,26 @@ function init() {
 
 } // End init
 window.onload = init;
-
+// returns the inputed max value
 function sakura_max(){
     max = Number(inputElem[0].value);
     return max;
 }
-
+// returns the inputed min value
 function sakura_min(){
     min = Number(inputElem[1].value);
     return min;
 }
-
+// returns the inputed value for square number
 function sakura_numbers(){
     numbers = Number(inputElem[2].value);
     return numbers;
 }
+// returns the inputed text string
 function sakura_text_string(){
   text = String(inputElem[3].value)
   return text;
 }
-
 
 function sakura_sum_min_max(min, max){
     var sum = 0;
@@ -66,13 +66,12 @@ function sakura_calc_squere_min_max(min, max){
     }
     return range_squere;
 }
-
+// function for checking the inputed text string
 function sakura_check_string(text){
     var check = 0;
     var text_size;
     var string_size;
     var text_mid;
-
 
     text = text.replaceAll(".", "")
     text = text.replaceAll("/", "")

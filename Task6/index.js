@@ -19,7 +19,7 @@ function init() {
     document.getElementById("btn_numbers").onclick = sakura_numbers;
     document.getElementById("btn_text").onclick = sakura_text_string;
     document.getElementById("btn_sakura").onclick = sakura_main_func;
-
+    document.getElementById("btn_sakuya").onclick = sakura_alter_background;
 
 } // End init
 window.onload = init;
@@ -110,6 +110,14 @@ function sakura_check_string(text){
         return false;
     }
 }
+
+function sakura_alter_background(){
+
+
+
+}
+
+
 
 function sakura_main_func(){
     var sakura_squere = sakura_calc_squere(numbers);

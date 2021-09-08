@@ -71,11 +71,21 @@ function sakura_check_string(text){
     var check = 0;
     var text_size;
     var string_size;
+    var text_mid;
 
+    text = text.replaceAll(".", "")
+    text = text.replaceAll("/", "")
+    text = text.replaceAll(",", "")
     text_size = text.length;
     string_size = text_size;
+    text_mid = (text_size / 2) + 1;
+
+
+    if((text_size % 2) == 1){
+      text = text.replace(text[text_mid], "")
+    }
         for(i = 0; i < (string_size / 2); i++){
-            if(text[i] == text[text_size - 1]){ 
+            if(text[i] == text[text_size - 1]){
                 check += 1;
                 text_size -= 1;
             }
@@ -86,7 +96,7 @@ function sakura_check_string(text){
         else{
             check = 0;
         }
- 
+
     if(check == "1"){
         console.info("true")
         return true;

@@ -3,8 +3,8 @@
 var min; // min value for sakura_sum_min_max()
 var max; // max value for sakura_sum_min_max()
 var numbers; // argument for sakura_calc_squere()
-var text;
-
+var text; // argument for polydrom checking function sakura_check_string()
+var tracker = 0; // keeps track what backrund to chance to
 
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
     document.getElementById("btn_numbers").onclick = sakura_numbers;
     document.getElementById("btn_text").onclick = sakura_text_string;
     document.getElementById("btn_sakura").onclick = sakura_main_func;
-    document.getElementById("btn_sakuya").onclick = sakura_alter_background;
+    //document.getElementById("btn_sakuya").onclick = sakura_alter_background;
 
 } // End init
 window.onload = init;
@@ -114,6 +114,18 @@ function sakura_check_string(text){
 function sakura_alter_background(){
 
 
+
+  if(tracker == 0){
+
+
+    tracker = 1;
+  }
+
+  if(tracker == 1){
+
+
+    tracker = 0;
+  }
 
 }
 

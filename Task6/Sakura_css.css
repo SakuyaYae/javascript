@@ -14,9 +14,9 @@
   color: whitesmoke;
   font-family: Verdana;
 }
-.sakura_background_alter{
+#sakura_background_alter{
   width: 100%;
-  background-image: url("908854.jpg");
+  background-image: url("Img/908854.jpg");
 }
 
 a{

@@ -6,21 +6,20 @@ var numbers; // argument for sakura_calc_squere()
 var text; // argument for polydrom checking function sakura_check_string()
 var tracker = 0; // keeps track what backrund to chance to
 var sakura_elem;
-
 function init() {
     input_elem = [];
     input_elem[0] = document.getElementById("max")
-	input_elem[1] = document.getElementById("min")
+	  input_elem[1] = document.getElementById("min")
     input_elem[2] = document.getElementById("number")
     input_elem[3] = document.getElementById("text")
-    sakura_elem = document.getElementById("sakura")
+    sakura_elem = document.getElementById("sakura_background_alter")
 
     document.getElementById("btn_min").onclick = sakura_min;
     document.getElementById("btn_max").onclick = sakura_max;
     document.getElementById("btn_numbers").onclick = sakura_numbers;
     document.getElementById("btn_text").onclick = sakura_text_string;
     document.getElementById("btn_sakura").onclick = sakura_main_func;
-    //document.getElementById("btn_sakuya").onclick = sakura_alter_background;
+    document.getElementById("btn_sakuya").onclick = sakura_alter_background;
 
 } // End init
 window.onload = init;
@@ -113,21 +112,13 @@ function sakura_check_string(text){
 }
 
 function sakura_alter_background(){
-  var changer;
-
-
   if(tracker == 0){
-
-    sakura_elem.style.color = "ff00ff"
-    tracker = 1;
+    sakura_elem.style.background = "ffffff"
   }
+  else{
+    sakura_elem.style.color = "000000"
 
-  if(tracker == 1){
-
-
-    tracker = 0;
   }
-
 }
 
 

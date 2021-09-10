@@ -7,7 +7,7 @@
     <title>Sakuya Yae</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="Sakura_css.css">
-    <script src="index.js" defer></script>
+    <script src="game.js" defer></script>
 </head>
 
 <body class="sakura_main" id="sakura_background_alter">
@@ -19,40 +19,33 @@
         </section>
     </header>
     <section class="section">
+
+      <table>
+        <td>
+          <tr class="sakura_main" id="sakura_game_pos_1"></tr>
+          <tr id="sakura_game_pos_2" class="sakura_main"></tr>
+          <tr id="sakura_game_pos_3" class="sakura_main"></tr>
+        </td>
+        <td>
+          <tr id="sakura_game_pos_4" class="sakura_main"></tr>
+          <tr id="sakura_game_pos_5" class="sakura_main"></tr>
+          <tr id="sakura_game_pos_6" class="sakura_main"></tr>
+        </td>
+        <td>
+          <tr id="sakura_game_pos_7" class="sakura_main"></tr>
+          <tr id="sakura_game_pos_8" class="sakura_main"></tr>
+          <tr id="sakura_game_pos_9" class="sakura_main"></tr>
+        </td>
+      </table>
+
+
         <form>
             <p>
-                <label for="max">max value</label>
-                <input type="text" name="max" id="max">
-                <button type="button" id="btn_max">Confirm max</button>
-            </p>
-            <p>
-                <label for="min">min value</label>
-                <input type="text" name="min" id="min">
-                <button type="button" id="btn_min">Confirm min</button>
-            </p>
-            <p>
-                <label for="number">number</label>
-                <input type="text" name="number" id="number">
-                <button type="button" id="btn_numbers">Confirm number</button>
-            </p>
-            <p>
-                <label for="dark">Check for polyndrom</label>
-                <input type="text" name="dark" id="text">
-                 <button type="button" id="btn_text">Confirm polyndrom check</button>
-            </p>
-            <p>
-                <label for="sakura">Sakura</label>
-                 <button type="button" id="btn_sakura">Sakura</button>
-            </p>
-            <p>
-                <label for="sakuya">Sakuya</label>
                  <button type="button" id="btn_sakuya">Sakuya</button>
             </p>
             <p>
-                <label for="sakuya">Sakuya reset</label>
-                 <button type="button" id="btn_sakuya_reset">Sakuya</button>
+                 <button type="button" id="btn_sakuya_reset">Sakuya reset</button>
             </p>
-
         </form>
         <img src="Img/Kazami.Kazuki.full.3270862.jpg" width="355" alt="Anime girl">
     </section>

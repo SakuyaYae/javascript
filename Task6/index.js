@@ -4,8 +4,8 @@ var min; // min value for sakura_sum_min_max()
 var max; // max value for sakura_sum_min_max()
 var numbers; // argument for sakura_calc_squere()
 var text; // argument for polydrom checking function sakura_check_string()
-var tracker = 0; // keeps track what backrund to chance to
 var sakura_elem;
+
 function init() {
     input_elem = [];
     input_elem[0] = document.getElementById("max")
@@ -20,7 +20,7 @@ function init() {
     document.getElementById("btn_text").onclick = sakura_text_string;
     document.getElementById("btn_sakura").onclick = sakura_main_func;
     document.getElementById("btn_sakuya").onclick = sakura_alter_background;
-
+    document.getElementById("btn_sakuya_reset").onclick = sakura_alter_background_reset;
 } // End init
 window.onload = init;
 // returns the inputed max value
@@ -112,17 +112,16 @@ function sakura_check_string(text){
 }
 
 function sakura_alter_background(){
-  if(tracker == 0){
-    sakura_elem.style.background = "ffffff"
-  }
-  else{
-    sakura_elem.style.color = "000000"
-
-  }
+    sakura_elem.style.color = "#00fff0"
+    document.body.style.backgroundImage = "url('Img/167624-anime-anime-girls-black-bullet-blue-hair-katana-kisara-tendo-red-eyes-swords.jpg')";
+}
+function sakura_alter_background_reset(){
+    document.body.style.backgroundImage = "url('Img/908854.jpg')";
+    sakura_elem.style.color = "#ffffff"
 }
 
 
-
+// main function uses most of the other functions 
 function sakura_main_func(){
     var sakura_squere = sakura_calc_squere(numbers);
     var sakura_squere_min_max = sakura_calc_squere_min_max(min, max);

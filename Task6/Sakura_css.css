@@ -31,3 +31,14 @@ button{
   color: whitesmoke;
   font-size: 80%;
 }
+
+table{
+  background-image: url("Img/16915.png");
+  background-color: darkorchid;
+  width: 45px;
+  height: 45px;
+  font-family: Verdana;
+  color: whitesmoke;
+  font-size: 80%;
+  
+}

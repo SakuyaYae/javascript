@@ -2,6 +2,7 @@
 var counter = 1;
 var player_1 = 0;
 var player_2 = 0;
+
 var cube_top_left = document.getElementById("sakura_game_pos_1")
 var cube_top_mid = document.getElementById("sakura_game_pos_2")
 var cube_top_rigth = document.getElementById("sakura_game_pos_3")
@@ -16,8 +17,6 @@ var cube_bot_rigth = document.getElementById("sakura_game_pos_9")
 
 function sakura_main(){
     var res = document.getElementById("res")
-    var game_winner = "error";
-
 
     cube_top_left.onclick = cube_top_left_func;
     cube_top_mid.onclick = cube_top_mid_func;
@@ -29,8 +28,15 @@ function sakura_main(){
     cube_bot_mid.onclick = cube_bot_mid_func;
     cube_bot_rigth.onclick =  cube_bot_rigth_func;
 
-// masive if statment for checking if a player wins or not
+    win = sakura_check_winner();
+    res.innerHTML = "Game over winner is: " + win;
+}
 
+
+function sakura_check_winner(){
+    var game_winner;
+
+    // masive if statment for checking if a player wins or not
     if(counter == 5){
         if(player_1 == 6){
           game_winner = "player 1" ;
@@ -102,11 +108,10 @@ function sakura_main(){
     if(counter == 9){
         game_winner = " none"
     }
-    res.innerHTML = "Game over winner is: " + game_winner;
+    return game_winner;
 }
 
 // here comes functions for adding ponts to players
-
 function cube_top_left_func(){
     if((counter % 2) == 1){
         player_1 += 1

@@ -25,7 +25,9 @@ a{
   color: whitesmoke;
   font-family: Verdana;
 }
-
+h1{
+  font-size: 155%;
+}
 button{
   background-color: darkorchid;
   font-family: Verdana;

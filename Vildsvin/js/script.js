@@ -11,8 +11,14 @@ var timerRef = null;	// Referens till timern för bilens förflyttning
 var startBtn;			// Referens till startknappen
 var stopBtn;			// Referens till stoppknappen
 /* === Tillägg i uppgiften === */
-
-
+var boar_count;
+var boar_kills;
+const boar = " pig.png" // boar img file name
+const kill = "smack.png" // hit img file name
+var timer; // a timer ?
+var rng_gen; // uses random to get random numbers
+var hit_elem; // refrens to hit element
+var boar_elem // refrens to baor element
 // ------------------------------
 // Initiera globala variabler och koppla funktion till knapp
 function init() {
@@ -30,8 +36,8 @@ function init() {
 		startBtn.disabled = false;
 		stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-	
-
+	boar_count = document.getElementById("pigNr")
+	boar_kills = document.getElementById("hitCounter")
 } // End init
 window.addEventListener("load",init);
 // ------------------------------
@@ -62,10 +68,11 @@ function startGame() {
 	carElem.style.top = "0px";
 	carDir = 1;
 	carElem.src = "img/" + carImgs[carDir];
+	boarElem.src = "img/" + boar;
 	moveCar();
 	/* === Tillägg i uppgiften === */
-	
-
+	boar_count.innerHTML = "0";
+	boar_kills.innerHTML = "0";
 } // End startGame
 // ------------------------------
 // Stoppa spelet
@@ -74,7 +81,7 @@ function stopGame() {
 	startBtn.disabled = false;
 	stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-	
+
 
 } // End stopGame
 // ------------------------------
@@ -106,10 +113,16 @@ function moveCar() {
 	carElem.style.top = y + "px";
 	timerRef = setTimeout(moveCar,timerStep);
 	/* === Tillägg i uppgiften === */
-	
+
 
 } // End moveCar
 // ------------------------------
 
 /* === Tillägg av nya funktioner i uppgiften === */
+function sakura_check_hit(){
 
+}
+
+function sakura_boar_location(){
+
+}

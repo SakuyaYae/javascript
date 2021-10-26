@@ -76,6 +76,7 @@ function sakura_check_string(text){
     text = text.replaceAll(".", "")
     text = text.replaceAll("/", "")
     text = text.replaceAll(",", "")
+    text = text.toLowerCase()
 
     text_size = text.length;
     string_size = text_size;

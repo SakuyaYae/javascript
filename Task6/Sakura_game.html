@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sakuya Yae</title>
+    <title>Sakuya Yae Game</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="Sakura_css.css">
     <script src="game.js" defer></script>
 </head>
 
-<body class="sakura_main" id="sakura_background_alter">
+<body class="sakura_main">
     <header class="sakura_main">
         <section class="section">
             <nav>
@@ -20,38 +20,31 @@
     </header>
     <section class="section">
 
-      <table>
-        <td>
-          <tr class="sakura_main" id="sakura_game_pos_1"></tr>
-          <tr id="sakura_game_pos_2" class="sakura_main"></tr>
-          <tr id="sakura_game_pos_3" class="sakura_main"></tr>
-        </td>
-        <td>
-          <tr id="sakura_game_pos_4" class="sakura_main"></tr>
-          <tr id="sakura_game_pos_5" class="sakura_main"></tr>
-          <tr id="sakura_game_pos_6" class="sakura_main"></tr>
-        </td>
-        <td>
-          <tr id="sakura_game_pos_7" class="sakura_main"></tr>
-          <tr id="sakura_game_pos_8" class="sakura_main"></tr>
-          <tr id="sakura_game_pos_9" class="sakura_main"></tr>
-        </td>
+      <table class="table">
+        <tr>
+          <td><button class="sakura_alt" id="sakura_game_pos_1">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_2">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_3">-</button></td>
+        </tr>
+        <tr>
+          <td><button  class="sakura_alt" id="sakura_game_pos_4">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_5">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_6">-</button></td>
+        </tr>
+        <tr>
+          <td><button  class="sakura_alt" id="sakura_game_pos_7">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_8">-</button></td>
+          <td><button  class="sakura_alt" id="sakura_game_pos_9">-</button></td>
+        </tr>
       </table>
-
-
-        <form>
-            <p>
-                 <button type="button" id="btn_sakuya">Sakuya</button>
-            </p>
-            <p>
-                 <button type="button" id="btn_sakuya_reset">Sakuya reset</button>
-            </p>
-        </form>
-        <img src="Img/Kazami.Kazuki.full.3270862.jpg" width="355" alt="Anime girl">
+      <p id="res"></p>
+        <img src="Img/feh summer plumeria and freyja.jpg" alt="Summer Freyja and summer plumeria from Fire emblem heroes" class="sakura_img">
+        <img src="Img/freyja_fire_emblem.jpg" alt="Summer Freyja from Fire emblem heroes" class="sakura_img">
+        <img src="Img/Ningguang.png" alt="Anime girl" class="sakura_img">
     </section>
     <footer class="sakura_main">
         <section class="section">
-            <img src="img/yaesakura.png" width="320" height="320" alt="Anime girl">
+            <img src="Img/yaesakura.png" alt="Anime girl" class="sakura_img_footer">
               <article class="article">
                 <p>Author: Samuel Håkansson SakuyaYae.
                     <a href="https://github.com/SakuyaYae"> Github</a>

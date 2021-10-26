@@ -1,3 +1,4 @@
+/*@author SakuyaYae */
 .sakura_main{
   font-size: 140%;
   font-family: Verdana;
@@ -8,8 +9,8 @@
 }
 
 .sakura_alt{
-  font-size: 22px;
-  background-color: purple;
+  font-size: 140%;
+  background-color: darkblue;
   width: 100%;
   color: whitesmoke;
   font-family: Verdana;
@@ -24,10 +25,38 @@ a{
   color: whitesmoke;
   font-family: Verdana;
 }
-
+h1{
+  font-size: 155%;
+}
 button{
   background-color: darkorchid;
   font-family: Verdana;
   color: whitesmoke;
   font-size: 80%;
+}
+
+table{
+  background-image: url("Img/16915.png");
+  width: 45px;
+  height: 45px;
+  font-family: Verdana;
+  color: whitesmoke;
+  font-size: 80%;
+  
+}
+
+#res{
+  font-size: 140%;
+  font-family: Verdana;
+  color: whitesmoke;
+}
+
+.sakura_img{
+  width: 50%;
+  padding: 1%;
+}
+
+.sakura_img_footer{
+  width: 30%;
+  padding: 1%;
 }

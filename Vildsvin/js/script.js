@@ -11,14 +11,16 @@ var timerRef = null;	// Referens till timern för bilens förflyttning
 var startBtn;			// Referens till startknappen
 var stopBtn;			// Referens till stoppknappen
 /* === Tillägg i uppgiften === */
-var boar_count;
-var boar_kills;
-const boar = " pig.png" // boar img file name
+var boar_count; // controls UI element for number of boars
+var boar_kills; // controls UI element for number of boars hit
+var count_boar_kills;
+const boar = "pig.png" // boar img file name
 const kill = "smack.png" // hit img file name
-var timer; // a timer ?
+var boar_show_timer; // a timer ?
 var rng_gen; // uses random to get random numbers
 var hit_elem; // refrens to hit element
-var boar_elem // refrens to baor element
+var boar_elem; // refrens to baor element
+var count_shown_boar; // number of boars shown
 // ------------------------------
 // Initiera globala variabler och koppla funktion till knapp
 function init() {
@@ -36,8 +38,9 @@ function init() {
 		startBtn.disabled = false;
 		stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-	boar_count = document.getElementById("pigNr")
-	boar_kills = document.getElementById("hitCounter")
+	boar_count = document.getElementById("pigNr");
+	boar_kills = document.getElementById("hitCounter");
+	boar_elem = document.getElementById("pig");
 } // End init
 window.addEventListener("load",init);
 // ------------------------------
@@ -68,11 +71,12 @@ function startGame() {
 	carElem.style.top = "0px";
 	carDir = 1;
 	carElem.src = "img/" + carImgs[carDir];
-	boarElem.src = "img/" + boar;
+	boar_elem.src = "img/" + boar;
+	boar_elem.style.left = "0px"
+	boar_elem.style.top = "0px"
 	moveCar();
 	/* === Tillägg i uppgiften === */
-	boar_count.innerHTML = "0";
-	boar_kills.innerHTML = "0";
+
 } // End startGame
 // ------------------------------
 // Stoppa spelet
@@ -81,8 +85,10 @@ function stopGame() {
 	startBtn.disabled = false;
 	stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-
-
+	boar_count.innerHTML = "0";
+	boar_kills.innerHTML = "0";
+	count_shown_boar = 0;
+	count_boar_kills = 0;
 } // End stopGame
 // ------------------------------
 // Flytta bilen ett steg framåt i bilens riktning
@@ -113,7 +119,7 @@ function moveCar() {
 	carElem.style.top = y + "px";
 	timerRef = setTimeout(moveCar,timerStep);
 	/* === Tillägg i uppgiften === */
-
+	sakura_boar_location()
 
 } // End moveCar
 // ------------------------------
@@ -121,8 +127,20 @@ function moveCar() {
 /* === Tillägg av nya funktioner i uppgiften === */
 function sakura_check_hit(){
 
+	count_boar_kills += 1;
 }
 
 function sakura_boar_location(){
+	var boar_pos_x = parseInt(boar_elem.style.left);
+	var boar_pos_y = parseInt(boar_elem.style.top);
+	rng_gen = Math.round(Math.random() * 1000 + 1);
+	console.log("rng seed ",rng_gen);
 
+	boar_pos_x += rng_gen;
+	boar_pos_x += rng_gen;
+
+	boar_elem.style.left = boar_pos_x + "px";
+	boar_elem.style.top = boar_pos_y + "px";
+
+	count_shown_boar += 1;
 }

@@ -135,7 +135,7 @@ function sakura_check_hit(x, y){
 	if(boar_pos_x == x && boar_pos_y == y){
 		count_boar_kills += 1;
 	}
-	boar_kills.innerHTML = '${count_boar_kills}';
+	boar_kills.innerHTML = `${count_boar_kills}`;
 }
 
 

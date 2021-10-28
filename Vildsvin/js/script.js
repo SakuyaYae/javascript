@@ -21,6 +21,10 @@ var rng_gen; // uses random to get random numbers
 var hit_elem; // refrens to hit element
 var boar_elem; // refrens to baor element
 var count_shown_boar; // number of boars shown
+var boar_pos_x
+var boar_pos_y
+var car_pos_x
+var car_pos_y
 // ------------------------------
 // Initiera globala variabler och koppla funktion till knapp
 function init() {
@@ -120,27 +124,39 @@ function moveCar() {
 	timerRef = setTimeout(moveCar,timerStep);
 	/* === Tillägg i uppgiften === */
 	sakura_boar_location()
-
+	sakura_check_hit(x, y)
 } // End moveCar
 // ------------------------------
 
 /* === Tillägg av nya funktioner i uppgiften === */
-function sakura_check_hit(){
-
-	count_boar_kills += 1;
+function sakura_check_hit(x, y){
+	car_pos_x = x;
+	car_pos_y = y;
+	if(boar_pos_x == x && boar_pos_y == y){
+		count_boar_kills += 1;
+	}
+	boar_kills.innerHTML = '${count_boar_kills}';
 }
 
+
 function sakura_boar_location(){
-	var boar_pos_x = parseInt(boar_elem.style.left);
-	var boar_pos_y = parseInt(boar_elem.style.top);
+	boar_pos_x = parseInt(boar_elem.style.left);
+	boar_pos_y = parseInt(boar_elem.style.top);
 	rng_gen = Math.round(Math.random() * 1000 + 1);
 	console.log("rng seed ",rng_gen);
 
 	boar_pos_x += rng_gen;
-	boar_pos_x += rng_gen;
+	boar_pos_y += rng_gen;
 
-	boar_elem.style.left = boar_pos_x + "px";
-	boar_elem.style.top = boar_pos_y + "px";
+	sakura_show_boar(boar_pos_x, boar_pos_y);
 
-	count_shown_boar += 1;
+}
+
+function sakura_show_boar(boar_pos_x, boar_pos_y){
+	boar_show_timer = Math.round(Math.random() * 10 + 1);
+	for(i = 0; i < boar_show_timer; i++){
+		boar_elem.style.left = boar_pos_x + "px";
+		boar_elem.style.top = boar_pos_y + "px";
+		count_shown_boar += 1;
+	}
 }

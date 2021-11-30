@@ -21,10 +21,12 @@ var rng_gen; // uses random to get random numbers
 var hit_elem; // refrens to hit element
 var boar_elem; // refrens to baor element
 var count_shown_boar; // number of boars shown
-var boar_pos_x
-var boar_pos_y
-var car_pos_x
-var car_pos_y
+var boar_pos_x;
+var boar_pos_y;
+var car_pos_x;
+var car_pos_y;
+var boar_limit_x;
+var boar_limit_y;
 // ------------------------------
 // Initiera globala variabler och koppla funktion till knapp
 function init() {
@@ -76,8 +78,12 @@ function startGame() {
 	carDir = 1;
 	carElem.src = "img/" + carImgs[carDir];
 	boar_elem.src = "img/" + boar;
-	boar_elem.style.left = "0px"
-	boar_elem.style.top = "0px"
+	boar_elem.style.left = "0px";
+	boar_elem.style.top = "0px";
+	count_boar_kills = 0;
+	count_shown_boar = 0;
+	boar_count.innerHTML = "0";
+	boar_kills.innerHTML = "0";
 	moveCar();
 	/* === Tillägg i uppgiften === */
 
@@ -89,10 +95,8 @@ function stopGame() {
 	startBtn.disabled = false;
 	stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-	boar_count.innerHTML = "0";
-	boar_kills.innerHTML = "0";
-	count_shown_boar = 0;
-	count_boar_kills = 0;
+
+
 } // End stopGame
 // ------------------------------
 // Flytta bilen ett steg framåt i bilens riktning
@@ -140,13 +144,23 @@ function sakura_check_hit(x, y){
 
 
 function sakura_boar_location(){
+	//boar_limit_x = boardElem.offsetWidth - boar_elem.offsetWidth;
+	//boar_limit_y = boardElem.offsetWidth - boar_elem.offsetWidth;
 	boar_pos_x = parseInt(boar_elem.style.left);
 	boar_pos_y = parseInt(boar_elem.style.top);
-	rng_gen = Math.round(Math.random() * 1000 + 1);
-	console.log("rng seed ",rng_gen);
 
-	boar_pos_x += rng_gen;
-	boar_pos_y += rng_gen;
+	rng_gen = Math.round(Math.random() * 800);
+	console.log("rng seed ", rng_gen);
+
+	boar_pos_x = rng_gen;
+	boar_pos_y = rng_gen;
+	if(rng_gen > 760){
+		boar_pos_x = 760;
+	}
+
+	if(rng_gen > 500){
+		boar_pos_y = boar_pos_y - 340;
+	}
 
 	sakura_show_boar(boar_pos_x, boar_pos_y);
 
@@ -154,9 +168,12 @@ function sakura_boar_location(){
 
 function sakura_show_boar(boar_pos_x, boar_pos_y){
 	boar_show_timer = Math.round(Math.random() * 10 + 1);
+	console.info("timer ", boar_show_timer)
+	console.info("shown ", count_shown_boar)
 	for(i = 0; i < boar_show_timer; i++){
 		boar_elem.style.left = boar_pos_x + "px";
 		boar_elem.style.top = boar_pos_y + "px";
 		count_shown_boar += 1;
 	}
+	
 }

@@ -27,6 +27,7 @@ var car_pos_x;
 var car_pos_y;
 var boar_limit_x;
 var boar_limit_y;
+var boar_time_out = null;
 // ------------------------------
 // Initiera globala variabler och koppla funktion till knapp
 function init() {
@@ -84,8 +85,9 @@ function startGame() {
 	count_shown_boar = 0;
 	boar_count.innerHTML = "0";
 	boar_kills.innerHTML = "0";
+	sakura_boar();
 	moveCar();
-	/* === Tillägg i uppgiften === */
+
 
 } // End startGame
 // ------------------------------
@@ -95,7 +97,10 @@ function stopGame() {
 	startBtn.disabled = false;
 	stopBtn.disabled = true;
 	/* === Tillägg i uppgiften === */
-
+	boar_elem.style.visibility = "hidden"
+	if (boar_time_out != null){
+		clearTimeout(boar_time_out);
+	} 
 
 } // End stopGame
 // ------------------------------
@@ -127,7 +132,7 @@ function moveCar() {
 	carElem.style.top = y + "px";
 	timerRef = setTimeout(moveCar,timerStep);
 	/* === Tillägg i uppgiften === */
-	sakura_boar_location()
+	
 	sakura_check_hit(x, y)
 } // End moveCar
 // ------------------------------
@@ -136,6 +141,7 @@ function moveCar() {
 function sakura_check_hit(x, y){
 	car_pos_x = x;
 	car_pos_y = y;
+	console.info("car x", x)
 	if(boar_pos_x == x && boar_pos_y == y){
 		count_boar_kills += 1;
 	}
@@ -143,19 +149,26 @@ function sakura_check_hit(x, y){
 }
 
 
+function sakura_boar(){
+	sakura_boar_location()
+}
+
 function sakura_boar_location(){
-	//boar_limit_x = boardElem.offsetWidth - boar_elem.offsetWidth;
-	//boar_limit_y = boardElem.offsetWidth - boar_elem.offsetWidth;
 	boar_pos_x = parseInt(boar_elem.style.left);
 	boar_pos_y = parseInt(boar_elem.style.top);
-
+	boar_elem.style.visibility = "hidden"
 	rng_gen = Math.round(Math.random() * 800);
 	console.log("rng seed ", rng_gen);
 
 	boar_pos_x = rng_gen;
 	boar_pos_y = rng_gen;
+
 	if(rng_gen > 760){
 		boar_pos_x = 760;
+	}
+
+	if(rng_gen > 460 && rng_gen < 500){
+		boar_pos_y = 460;
 	}
 
 	if(rng_gen > 500){
@@ -167,13 +180,19 @@ function sakura_boar_location(){
 }
 
 function sakura_show_boar(boar_pos_x, boar_pos_y){
-	boar_show_timer = Math.round(Math.random() * 10 + 1);
-	console.info("timer ", boar_show_timer)
-	console.info("shown ", count_shown_boar)
-	for(i = 0; i < boar_show_timer; i++){
-		boar_elem.style.left = boar_pos_x + "px";
-		boar_elem.style.top = boar_pos_y + "px";
-		count_shown_boar += 1;
+	boar_elem.style.visibility = "visible"
+	boar_show_timer = Math.round(Math.random() * 10000);
+
+	boar_elem.style.left = boar_pos_x + "px";
+	boar_elem.style.top = boar_pos_y + "px";
+
+	boar_time_out = setTimeout(sakura_boar,boar_show_timer);
+
+	count_shown_boar += 1;	
+	boar_count.innerHTML = `${count_shown_boar}`;
+
+	if(count_shown_boar == 10){
+		stopGame();
 	}
-	
+
 }
